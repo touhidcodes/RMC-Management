@@ -1,9 +1,5 @@
-const FormLayout = () => {
-  return (
-    <div className="min-h-screen ">
-      <div>Resume layout</div>
-    </div>
-  );
+const FormLayout = ({ children }: { children: React.ReactNode }) => {
+  return <div>{children} </div>;
 };
 
 export default FormLayout;
