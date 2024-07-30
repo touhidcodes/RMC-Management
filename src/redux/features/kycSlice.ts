@@ -9,8 +9,8 @@ const initialState: SearchParams = {
   params: "",
 };
 
-export const flatSlice = createSlice({
-  name: "flat",
+export const kycSlice = createSlice({
+  name: "kyc",
   initialState,
   reducers: {
     setSearchParams(state, action: PayloadAction<SearchParams>) {
@@ -20,6 +20,6 @@ export const flatSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setSearchParams } = flatSlice.actions;
+export const { setSearchParams } = kycSlice.actions;
 
-export default flatSlice.reducer;
+export default kycSlice.reducer;
