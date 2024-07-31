@@ -2,12 +2,17 @@ import { Box, Button, Grid } from "@mui/material";
 import { FieldValues } from "react-hook-form";
 import TCForm from "../Forms/TCForm";
 import TCInput from "../Forms/TCInput";
+import { useDispatch } from "react-redux";
+import { updateKycData } from "@/redux/features/kycSlice";
 
 // KYCForm component
 const KYCForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (data: FieldValues) => {
     console.log("Form Data:", data);
     // You can process the form data here, e.g., send it to a server
+    dispatch(updateKycData(data));
   };
 
   return (

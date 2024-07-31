@@ -1,6 +1,7 @@
 "use client";
 
 import KYCForm from "@/components/KYC Form/kycForm";
+import KYCPreview from "@/components/KYC Preview/KYCPreview";
 import { Container } from "@mui/material";
 
 const KYCBuilderPage = () => {
@@ -12,12 +13,8 @@ const KYCBuilderPage = () => {
           <KYCForm />
         </div>
         {/*  Preview */}
-        <div>
-          Hi Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
-          earum saepe ducimus reiciendis, vero, voluptatum eum sapiente
-          cupiditate laudantium nulla eveniet deleniti ex commodi provident
-          rerum magnam officia praesentium ipsum magni ab voluptates quos!
-        </div>
+        <KYCPreview />
+        <div></div>
       </div>
     </Container>
   );

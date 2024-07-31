@@ -2,24 +2,30 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface SearchParams {
-  params: string;
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
 }
 
 const initialState: SearchParams = {
-  params: "",
+  name: "",
+  email: "",
+  phone: "",
+  address: "",
 };
 
 export const kycSlice = createSlice({
   name: "kyc",
   initialState,
   reducers: {
-    setSearchParams(state, action: PayloadAction<SearchParams>) {
-      state.params = action.payload.params;
+    updateKycData: (state, action) => {
+      return { ...state, ...action.payload };
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setSearchParams } = kycSlice.actions;
+export const { updateKycData } = kycSlice.actions;
 
 export default kycSlice.reducer;
