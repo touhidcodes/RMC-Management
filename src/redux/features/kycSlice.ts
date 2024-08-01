@@ -6,6 +6,9 @@ export interface SearchParams {
   email: string;
   phone: string;
   address: string;
+  amount: string;
+  date: string;
+  from: string;
 }
 
 const initialState: SearchParams = {
@@ -13,6 +16,9 @@ const initialState: SearchParams = {
   email: "",
   phone: "",
   address: "",
+  amount: "",
+  date: "",
+  from: "",
 };
 
 export const kycSlice = createSlice({
