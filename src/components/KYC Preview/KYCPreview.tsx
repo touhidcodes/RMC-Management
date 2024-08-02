@@ -7,14 +7,15 @@ const KYCPreview = () => {
   const kycData = useSelector((state: RootState) => state.kyc);
 
   return (
-    <Box
-      sx={{ maxWidth: 500, mx: "auto", p: 2, mt: 4, border: "1px solid #ccc" }}
-    >
+    <Box sx={{ p: 2, mt: 4, border: "1px solid #ccc" }}>
       <Typography variant="h6">KYC Preview</Typography>
       <Typography>Name: {kycData.name}</Typography>
       <Typography>Email: {kycData.email}</Typography>
       <Typography>Phone: {kycData.phone}</Typography>
       <Typography>Address: {kycData.address}</Typography>
+      <Typography>Amount: {kycData.amount}</Typography>
+      <Typography>Date: {kycData.date}</Typography>
+      <Typography>From: {kycData.from}</Typography>
     </Box>
   );
 };
