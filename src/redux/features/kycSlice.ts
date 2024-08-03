@@ -2,23 +2,53 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface SearchParams {
-  name: string;
-  email: string;
-  phone: string;
-  address: string;
+  transactionType: string;
+  currency: string;
+  exchangeRate: string;
   amount: string;
-  date: string;
-  from: string;
+  name: string;
+  fathersName: string;
+  mothersName: string;
+  spousesName: string;
+  nationality: string;
+  passportNo: string;
+  passportDOI: string;
+  passportPOI: string;
+  nationalID: string;
+  dateOfBirth: string;
+  occupation: string;
+  address: string;
+  phone: string;
+  countryToVisit: string;
+  purposeOfVisit: string;
+  dateOfArrival: string;
+  dateOfDeparture: string;
+  sourceOfFund: string;
 }
 
 const initialState: SearchParams = {
-  name: "",
-  email: "",
-  phone: "",
-  address: "",
+  transactionType: "",
+  currency: "",
+  exchangeRate: "",
   amount: "",
-  date: "",
-  from: "",
+  name: "",
+  fathersName: "",
+  mothersName: "",
+  spousesName: "",
+  nationality: "",
+  passportNo: "",
+  passportDOI: "",
+  passportPOI: "",
+  nationalID: "",
+  dateOfBirth: "",
+  occupation: "",
+  address: "",
+  phone: "",
+  countryToVisit: "",
+  purposeOfVisit: "",
+  dateOfArrival: "",
+  dateOfDeparture: "",
+  sourceOfFund: "",
 };
 
 export const kycSlice = createSlice({
