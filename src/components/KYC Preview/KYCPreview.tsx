@@ -10,12 +10,11 @@ const KYCPreview = () => {
     <Box sx={{ p: 2, mt: 4, border: "1px solid #ccc" }}>
       <Typography variant="h6">KYC Preview</Typography>
       <Typography>Name: {kycData.name}</Typography>
-      <Typography>Email: {kycData.email}</Typography>
+      <Typography>Email: {kycData.fathersName}</Typography>
+      <Typography>Email: {kycData.mothersName}</Typography>
       <Typography>Phone: {kycData.phone}</Typography>
       <Typography>Address: {kycData.address}</Typography>
       <Typography>Amount: {kycData.amount}</Typography>
-      <Typography>Date: {kycData.date}</Typography>
-      <Typography>From: {kycData.from}</Typography>
     </Box>
   );
 };
