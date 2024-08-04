@@ -55,13 +55,13 @@ export const kycSlice = createSlice({
   name: "kyc",
   initialState,
   reducers: {
-    updateKycData: (state, action) => {
+    setKycData: (state, action) => {
       return { ...state, ...action.payload };
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { updateKycData } = kycSlice.actions;
+export const { setKycData } = kycSlice.actions;
 
 export default kycSlice.reducer;
