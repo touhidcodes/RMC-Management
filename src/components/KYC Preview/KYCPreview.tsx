@@ -57,8 +57,6 @@ const KYCPreview = () => {
               <br />
               (A) Passport No:{" "}
               <span className="font-medium">{kycData.passportNo}</span> <br />
-              (A) Passport No:{" "}
-              <span className="font-medium">{kycData.passportNo}</span> <br />
               (B) Date of Issue:{" "}
               <span className="font-medium">
                 {kycData.passportIssueDate}
