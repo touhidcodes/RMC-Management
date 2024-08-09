@@ -15,6 +15,10 @@ const KYCForm = () => {
     dispatch(setKycData(data));
   };
 
+  useEffect(() => {
+    // Handle any side effects if necessary when kycData changes
+  }, [kycData]);
+
   return (
     <Box
       sx={{
