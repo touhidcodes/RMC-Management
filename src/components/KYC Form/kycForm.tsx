@@ -177,10 +177,6 @@ const KYCForm = () => {
                 13. Date of Departure (Approx):{" "}
                 <span className="font-medium">{kycData.dateOfDeparture}</span>
               </Typography>
-              <Typography variant="body1">
-                13. Date of Departure (Approx):{" "}
-                <span className="font-medium">{kycData.dateOfDeparture}</span>
-              </Typography>
             </Grid>
           )}
         </Grid>
