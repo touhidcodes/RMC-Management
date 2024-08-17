@@ -162,6 +162,9 @@ const KYCForm = () => {
         <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
           Preview
         </Typography>
+        <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+          Preview
+        </Typography>
         <Grid container spacing={2}>
           {kycData.dateOfArrival && (
             <Grid item xs={12}>
