@@ -166,7 +166,7 @@ const KYCForm = () => {
           {kycData.dateOfArrival && (
             <Grid item xs={12}>
               <Typography variant="body1">
-                13. Date of Arrival (Approx): 13. Date of Arrival (Approx):{" "}
+                13. Date of Arrival (Approx):{" "}
                 <span className="font-medium">{kycData.dateOfArrival}</span>
               </Typography>
             </Grid>
