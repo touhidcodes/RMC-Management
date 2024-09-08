@@ -1,13 +1,38 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import { Box, Grid, Typography } from "@mui/material";
 import { RootState } from "@/redux/store";
+import { compile } from "@fileforge/react-print";
+import html2pdf from "html2pdf.js";
 
 const KYCPreview = () => {
   const kycData = useSelector((state: RootState) => state.kyc);
 
+  const documentRef = useRef<HTMLDivElement | null>(null);
+
+  const downloadPdf = async () => {
+    if (!documentRef.current) return;
+
+    // Compile the Document component into HTML
+    const html = await compile(<div ref={documentRef} />);
+
+    // Convert the HTML to a PDF and trigger download
+    const element = document.createElement("div");
+    element.innerHTML = html;
+
+    html2pdf()
+      .from(element)
+      .set({
+        margin: 1,
+        filename: "KYC_Document.pdf",
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+      })
+      .save();
+  };
+
   return (
-    <Box className="bg-white p-6 shadow-md rounded-md">
+    <Box className="bg-white p-6 shadow-md rounded-md" ref={documentRef}>
       <Typography variant="h6" className="font-bold mb-4">
         RAHMAN MONEY CHANGER
       </Typography>
