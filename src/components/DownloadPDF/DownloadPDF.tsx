@@ -29,7 +29,7 @@ const DownloadPDF: React.FC<DownloadPdfProps> = ({
     html2pdf()
       .from(html)
       .set({
-        margin: 1,
+        margin: 0.4,
         filename,
         // Increase the scale for better resolution
         html2canvas: {

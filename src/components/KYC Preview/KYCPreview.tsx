@@ -5,21 +5,39 @@ import { RootState } from "@/redux/store";
 import { Footnote, PageBottom, Tailwind, CSS } from "@fileforge/react-print";
 import DownloadPDF from "../DownloadPDF/DownloadPDF";
 
+// A4 paper size in pixels (for 96 DPI screens)
+const A4_WIDTH = "210mm"; // Equivalent to 8.27 inches
+const A4_HEIGHT = "297mm"; // Equivalent to 11.69 inches
+
 const KYCPreview = () => {
   const kycData = useSelector((state: RootState) => state.kyc);
 
   return (
     <DownloadPDF filename="KYC_Document.pdf">
-      <Tailwind>
-        <CSS>
-          {`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+      <Box
+        sx={{
+          width: A4_WIDTH,
+          height: A4_HEIGHT,
+          backgroundColor: "white",
+          padding: 3,
+          boxShadow: 3,
+          border: "1px solid #ccc",
+          margin: "auto",
+          overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <Tailwind>
+          <CSS>
+            {`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
       @page {
         size: a4;
         margin: .75in .75in 1in .75in;
       }
       `}
-        </CSS>
-        <div className="font-[inter] text-slate-800">
+          </CSS>
+          {/* <div className="font-[inter] text-slate-800">
           <div className="bg-slate-100 -z-10 absolute -bottom-[1in] -right-[.75in] -left-[.75in] rounded-t-[.75in] h-[20vh]"></div>
           <PageBottom>
             <div className="text-xs text-slate-400 border-t border-t-slate-300 py-4 mt-4 flex border-b border-b-slate-300">
@@ -73,7 +91,7 @@ const KYCPreview = () => {
               <div className="flex bg-white rounded-md text-slate-800 items-stretch">
                 <div className="flex-grow flex flex-col p-3 pt-2">
                   <div className="text-sm text-[#5a2489] flex items-center">
-                    Pay online
+                    Name: {kycData.name}
                   </div>
                   <div className="basis-0 flex-grow" />
                   <div className="text-2xl font-mono font-bold pb-2">
@@ -175,9 +193,230 @@ const KYCPreview = () => {
               </td>
             </tr>
           </table>
-        </div>
-      </Tailwind>
-      {/* <Box className="bg-white p-6 shadow-md rounded-md">
+        </div> */}
+          <div className="bg-white">
+            <header className="flex items-center justify-between border-b pb-4 mb-4">
+              <div>
+                <h1 className="text-xl font-bold text-purple-600">
+                  Rahman Money Changer
+                </h1>
+                <p className="text-sm text-gray-500">
+                  Benapole Road Checkpost, Sharsha, Jessore
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="text-sm text-gray-500">Date: ___________</p>
+              </div>
+            </header>
+
+            <div className="text-sm">
+              <p>Dear Sir,</p>
+              <p className="text-justify">
+                <span className="text-white">Dear</span> I want to Buy / Sell
+                Foreign Currency Form / Your Money Changer As Per Money
+                Laundering Prevention Act, 2012 Detailed Information Is
+                Furnished Below:
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-2 text-sm mt-3">
+              {/* Customer Personal Information */}
+              <div className="grid grid-cols-3 gap-1">
+                <div className="grid col-span-2 gap-1">
+                  <div>
+                    <div>
+                      <span className="font-semibold text-gray-700">
+                        1. Name of Customer:{" "}
+                      </span>
+                      {kycData.name ||
+                        "................................................................................"}
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="font-semibold text-gray-700">
+                      Father's Name:
+                    </div>
+                    <div>{kycData.fathersName || "__________________"}</div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="font-semibold text-gray-700">
+                      Mother's Name:
+                    </div>
+                    <div>{kycData.mothersName || "__________________"}</div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="font-semibold text-gray-700">
+                      Spouse's Name:
+                    </div>
+                    <div>{kycData.spouseName || "__________________"}</div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="font-semibold text-gray-700">
+                      Nationality:
+                    </div>
+                    <div>{kycData.nationality || "__________________"}</div>
+                  </div>
+                </div>
+                {/* Exchange Information Box */}
+                <div className="border-2 p-3">
+                  <div className="grid grid-cols-1 gap-1">
+                    {/* Type of Transaction */}
+                    <div>
+                      <span className="font-semibold text-gray-700">
+                        Type of Transaction:{" "}
+                      </span>
+                      Sell /Buy
+                    </div>
+                    {/* Foreign Currency */}
+                    <div>
+                      <span className="font-semibold text-gray-700">
+                        Foreign Currency:{" "}
+                      </span>
+                      USD Dollars
+                    </div>
+                    {/* Exchange Rate */}
+                    <div>
+                      <span className="font-semibold text-gray-700">
+                        Exchange Rate:{" "}
+                      </span>
+                      ......................
+                    </div>
+                    {/* Amount */}
+                    <div>
+                      <span className="font-semibold text-gray-700">
+                        Amount:{" "}
+                      </span>
+                      ....................
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t pt-4 mt-4">
+                <div className="font-semibold text-purple-600">
+                  Passport Details:
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">
+                    Passport No:
+                  </div>
+                  <div>{kycData.passportNo || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">
+                    Date of Issue:
+                  </div>
+                  <div>{kycData.passportIssueDate || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">
+                    Place of Issue:
+                  </div>
+                  <div>
+                    {kycData.passportPlaceOfIssue || "__________________"}
+                  </div>
+                </div>
+              </div>
+              <div className="border-t pt-4 mt-4">
+                <div className="font-semibold text-purple-600">
+                  Transaction Details:
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">
+                    Transaction Type:
+                  </div>
+                  <div>{kycData.transactionType || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">Currency:</div>
+                  <div>{kycData.currency || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">
+                    Exchange Rate:
+                  </div>
+                  <div>{kycData.exchangeRate || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">Amount:</div>
+                  <div>{kycData.amount || "__________________"}</div>
+                </div>
+              </div>
+              <div className="border-t pt-4 mt-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">NID:</div>
+                  <div>{kycData.nid || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">
+                    Date of Birth:
+                  </div>
+                  <div>{kycData.dob || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">Occupation:</div>
+                  <div>{kycData.occupation || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">Address:</div>
+                  <div>{kycData.address || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">Phone:</div>
+                  <div>{kycData.phone || "__________________"}</div>
+                </div>
+              </div>
+              <div className="border-t pt-4 mt-4">
+                <div className="font-semibold text-purple-600">
+                  Travel Details:
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">
+                    Country of Visit:
+                  </div>
+                  <div>{kycData.countryOfVisit || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">
+                    Purpose of Travel:
+                  </div>
+                  <div>{kycData.purposeOfTravel || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">
+                    Date of Arrival:
+                  </div>
+                  <div>{kycData.dateOfArrival || "__________________"}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">
+                    Date of Departure:
+                  </div>
+                  <div>{kycData.dateOfDeparture || "__________________"}</div>
+                </div>
+              </div>
+              <div className="border-t pt-4 mt-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="font-semibold text-gray-700">
+                    Source of Fund:
+                  </div>
+                  <div>{kycData.sourceOfFund || "__________________"}</div>
+                </div>
+              </div>
+            </div>
+
+            <footer className="border-t mt-6 pt-4 text-center text-xs text-gray-500">
+              <p>
+                Rahman Money Changer, Benapole Road Checkpost, Sharsha, Jessore
+                <br />
+                Phone: +88-01716-255522 | Email: info@rahmanmoneychanger.com
+              </p>
+              <p className="mt-2">
+                © 2024 Rahman Money Changer. All rights reserved.
+              </p>
+            </footer>
+          </div>
+        </Tailwind>
+        {/* <Box className="bg-white p-6 shadow-md rounded-md">
         <Typography variant="h6" className="font-bold mb-4">
           RAHMAN MONEY CHANGER
         </Typography>
@@ -325,6 +564,7 @@ const KYCPreview = () => {
           (Name Signature & Seal of the Officer / Manager)
         </Typography>
       </Box> */}
+      </Box>
     </DownloadPDF>
   );
 };
