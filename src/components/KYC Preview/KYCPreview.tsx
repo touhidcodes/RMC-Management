@@ -263,7 +263,7 @@ const KYCPreview = () => {
                 </div>
                 {/* Exchange Information Box */}
                 <div className="border-2 p-3">
-                  <div className="grid grid-cols-1 gap-1">
+                  <div className="grid grid-cols-1 gap-2">
                     {/* Type of Transaction */}
                     <div>
                       <span className="font-semibold text-gray-700">
@@ -295,7 +295,8 @@ const KYCPreview = () => {
                   </div>
                 </div>
               </div>
-              <div className="border-t pt-2 mt-2">
+              {/* Passport */}
+              <div className="border-t pt-3 mt-2">
                 <div className="font-bold text-purple-600">
                   6. Passport Details:
                 </div>
@@ -352,65 +353,61 @@ const KYCPreview = () => {
                 </div>
               </div>
 
-              <div className="border-t pt-4 mt-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">NID:</div>
-                  <div>{kycData.nid || "__________________"}</div>
+              {/* Address */}
+              <div className="border-t pt-3 mt-2">
+                <div className="font-bold text-purple-600">
+                  10. Address information:
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">
-                    Date of Birth:
+                {/* Address  Information*/}
+                <div className="grid gap-2 mt-2">
+                  {/* Contact details */}
+                  <div className="ml-5">
+                    <span className="font-semibold text-gray-700">
+                      (A). Contact Details:{" "}
+                    </span>
+                    {kycData.address ||
+                      "................................................................................"}
                   </div>
-                  <div>{kycData.dob || "__________________"}</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">Occupation:</div>
-                  <div>{kycData.occupation || "__________________"}</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">Address:</div>
-                  <div>{kycData.address || "__________________"}</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">Phone:</div>
-                  <div>{kycData.phone || "__________________"}</div>
-                </div>
-              </div>
-              <div className="border-t pt-4 mt-4">
-                <div className="font-semibold text-purple-600">
-                  Travel Details:
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">
-                    Country of Visit:
+                  {/* Telephone / Phone */}
+                  <div className="ml-5">
+                    <span className="font-semibold text-gray-700">
+                      (B). Telephone / Phone No:{" "}
+                    </span>
+                    {kycData.phone ||
+                      "................................................................................"}
                   </div>
-                  <div>{kycData.countryOfVisit || "__________________"}</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">
-                    Purpose of Travel:
+                  {/* Country of visit */}
+                  <div>
+                    <span className="font-semibold text-gray-700">
+                      11. Country Of Visit:{" "}
+                    </span>
+                    {kycData.phone ||
+                      "................................................................................"}
                   </div>
-                  <div>{kycData.purposeOfTravel || "__________________"}</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">
-                    Date of Arrival:
+                  {/* Purpose of travel */}
+                  <div>
+                    <span className="font-semibold text-gray-700">
+                      12. Purpose Of Travel:{" "}
+                    </span>
+                    {kycData.phone ||
+                      "................................................................................"}
                   </div>
-                  <div>{kycData.dateOfArrival || "__________________"}</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">
-                    Date of Departure:
+                  {/* Date of Arrival / Departure */}
+                  <div>
+                    <span className="font-semibold text-gray-700">
+                      13. Date Of Arrival / Departure (Approx):{" "}
+                    </span>
+                    {kycData.phone ||
+                      "................................................................................"}
                   </div>
-                  <div>{kycData.dateOfDeparture || "__________________"}</div>
-                </div>
-              </div>
-              <div className="border-t pt-4 mt-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">
-                    Source of Fund:
+                  {/* Source of Fund */}
+                  <div>
+                    <span className="font-semibold text-gray-700">
+                      14. Source Of Fund:{" "}
+                    </span>
+                    {kycData.phone ||
+                      "................................................................................"}
                   </div>
-                  <div>{kycData.sourceOfFund || "__________________"}</div>
                 </div>
               </div>
             </div>
