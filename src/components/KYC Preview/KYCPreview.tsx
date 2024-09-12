@@ -4,6 +4,7 @@ import { RootState } from "@/redux/store";
 
 import { Footnote, PageBottom, Tailwind, CSS } from "@fileforge/react-print";
 import DownloadPDF from "../DownloadPDF/DownloadPDF";
+import Image from "next/image";
 
 // A4 paper size in pixels (for 96 DPI screens)
 const A4_WIDTH = "210mm"; // Equivalent to 8.27 inches
@@ -195,7 +196,7 @@ const KYCPreview = () => {
           </table>
         </div> */}
           <div className="bg-white">
-            <header className="flex items-center justify-between border-b pb-4 mb-4">
+            {/* <header className="flex items-center justify-between border-b pb-4 mb-4">
               <div>
                 <h1 className="text-xl font-bold text-purple-600">
                   Rahman Money Changer
@@ -207,7 +208,16 @@ const KYCPreview = () => {
               <div className="text-right">
                 <p className="text-sm text-gray-500">Date: ___________</p>
               </div>
-            </header>
+            </header> */}
+            <div className="relative w-full h-28">
+              <Image
+                src="/assets/images/Header.png"
+                alt="Header Image"
+                layout="fill"
+                objectFit="cover"
+                priority
+              />
+            </div>
 
             <div className="text-sm">
               <p>Dear Sir,</p>
