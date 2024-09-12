@@ -196,19 +196,6 @@ const KYCPreview = () => {
           </table>
         </div> */}
           <div className="bg-white">
-            {/* <header className="flex items-center justify-between border-b pb-4 mb-4">
-              <div>
-                <h1 className="text-xl font-bold text-purple-600">
-                  Rahman Money Changer
-                </h1>
-                <p className="text-sm text-gray-500">
-                  Benapole Road Checkpost, Sharsha, Jessore
-                </p>
-              </div>
-              <div className="text-right">
-                <p className="text-sm text-gray-500">Date: ___________</p>
-              </div>
-            </header> */}
             <div className="relative w-full h-28">
               <Image
                 src="/assets/images/Header.png"
@@ -228,42 +215,50 @@ const KYCPreview = () => {
                 Furnished Below:
               </p>
             </div>
+
             <div className="grid grid-cols-1 gap-2 text-sm mt-3">
               {/* Customer Personal Information */}
               <div className="grid grid-cols-3 gap-1">
-                <div className="grid col-span-2 gap-1">
+                <div className="grid col-span-2 gap-2">
+                  {/* Name */}
                   <div>
-                    <div>
-                      <span className="font-semibold text-gray-700">
-                        1. Name of Customer:{" "}
-                      </span>
-                      {kycData.name ||
-                        "................................................................................"}
-                    </div>
+                    <span className="font-semibold text-gray-700">
+                      1. Name of Customer:{" "}
+                    </span>
+                    {kycData.name ||
+                      "................................................................................"}
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="font-semibold text-gray-700">
-                      Father's Name:
-                    </div>
-                    <div>{kycData.fathersName || "__________________"}</div>
+                  {/* Fathers name */}
+                  <div>
+                    <span className="font-semibold text-gray-700">
+                      2. Father's Name:{" "}
+                    </span>
+                    {kycData.fathersName ||
+                      "................................................................................"}
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="font-semibold text-gray-700">
-                      Mother's Name:
-                    </div>
-                    <div>{kycData.mothersName || "__________________"}</div>
+                  {/* Mothers name */}
+                  <div>
+                    <span className="font-semibold text-gray-700">
+                      3. Mother's Name:{" "}
+                    </span>
+                    {kycData.mothersName ||
+                      "................................................................................"}
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="font-semibold text-gray-700">
-                      Spouse's Name:
-                    </div>
-                    <div>{kycData.spouseName || "__________________"}</div>
+                  {/* Spouses name */}
+                  <div>
+                    <span className="font-semibold text-gray-700">
+                      4. Spouse's Name:{" "}
+                    </span>
+                    {kycData.spouseName ||
+                      "................................................................................"}
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="font-semibold text-gray-700">
-                      Nationality:
-                    </div>
-                    <div>{kycData.nationality || "__________________"}</div>
+                  {/* Nationality */}
+                  <div>
+                    <span className="font-semibold text-gray-700">
+                      4. Nationality:{" "}
+                    </span>
+                    {kycData.nationality ||
+                      "................................................................................"}
                   </div>
                 </div>
                 {/* Exchange Information Box */}
@@ -300,57 +295,63 @@ const KYCPreview = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="border-t pt-4 mt-4">
-                <div className="font-semibold text-purple-600">
-                  Passport Details:
+              <div className="border-t pt-2 mt-2">
+                <div className="font-bold text-purple-600">
+                  6. Passport Details:
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">
-                    Passport No:
+                {/* Passport information */}
+                <div className="grid gap-2 mt-2">
+                  {/* Passport no */}
+                  <div className="ml-5">
+                    <span className="font-semibold text-gray-700">
+                      (A). Passport No:{" "}
+                    </span>
+                    {kycData.passportNo ||
+                      "................................................................................"}
                   </div>
-                  <div>{kycData.passportNo || "__________________"}</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">
-                    Date of Issue:
+                  {/* Date of issue */}
+                  <div className="ml-5">
+                    <span className="font-semibold text-gray-700">
+                      (B). Date Of Issue:{" "}
+                    </span>
+                    {kycData.passportIssueDate ||
+                      "................................................................................"}
                   </div>
-                  <div>{kycData.passportIssueDate || "__________________"}</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">
-                    Place of Issue:
+                  {/* Place of issue */}
+                  <div className="ml-5">
+                    <span className="font-semibold text-gray-700">
+                      (C). Place Of Issue:{" "}
+                    </span>
+                    {kycData.passportPlaceOfIssue ||
+                      "................................................................................"}
                   </div>
+                  {/* National ID no */}
                   <div>
-                    {kycData.passportPlaceOfIssue || "__________________"}
+                    <span className="font-semibold text-gray-700">
+                      7. National ID No (For Bangladeshi Only):{" "}
+                    </span>
+                    {kycData.nid ||
+                      "................................................................................"}
+                  </div>
+                  {/* Date of Birth */}
+                  <div>
+                    <span className="font-semibold text-gray-700">
+                      8. Date Of Birth:{" "}
+                    </span>
+                    {kycData.dob ||
+                      "................................................................................"}
+                  </div>
+                  {/* Occupation */}
+                  <div>
+                    <span className="font-semibold text-gray-700">
+                      9. Occupation:{" "}
+                    </span>
+                    {kycData.occupation ||
+                      "................................................................................"}
                   </div>
                 </div>
               </div>
-              <div className="border-t pt-4 mt-4">
-                <div className="font-semibold text-purple-600">
-                  Transaction Details:
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">
-                    Transaction Type:
-                  </div>
-                  <div>{kycData.transactionType || "__________________"}</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">Currency:</div>
-                  <div>{kycData.currency || "__________________"}</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">
-                    Exchange Rate:
-                  </div>
-                  <div>{kycData.exchangeRate || "__________________"}</div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="font-semibold text-gray-700">Amount:</div>
-                  <div>{kycData.amount || "__________________"}</div>
-                </div>
-              </div>
+
               <div className="border-t pt-4 mt-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="font-semibold text-gray-700">NID:</div>
