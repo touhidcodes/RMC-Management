@@ -263,7 +263,7 @@ const KYCPreview = () => {
                 </div>
                 {/* Exchange Information Box */}
                 <div className="border-2 p-3">
-                  <div className="grid grid-cols-1 gap-2">
+                  <div className="grid grid-cols-1 gap-2h">
                     {/* Type of Transaction */}
                     <div>
                       <span className="font-semibold text-gray-700">
