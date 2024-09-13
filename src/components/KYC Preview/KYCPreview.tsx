@@ -196,12 +196,11 @@ const KYCPreview = () => {
           </table>
         </div> */}
           <div className="bg-white">
-            <div className="relative w-full h-28">
+            <div className="relative w-full h-36">
               <Image
                 src="/assets/images/Header.png"
                 alt="Header Image"
                 layout="fill"
-                objectFit="cover"
                 priority
               />
             </div>

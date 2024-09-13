@@ -4,8 +4,14 @@ import "./globals.css";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { Toaster } from "sonner";
 import Providers from "@/lib/providers/Providers";
+import localFont from "next/font/local";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const Bahnschrift = localFont({
+  src: "../../public/fonts/Bahnschrift.woff2",
+  variable: "--font-Bahnschrift",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={Bahnschrift.className}>
         <AppRouterCacheProvider>
           <Toaster position="top-right" />
           <Providers>{children}</Providers>
