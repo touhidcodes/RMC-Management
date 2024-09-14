@@ -75,7 +75,7 @@ const KYCForm = () => {
           <Grid item xs={12} sm={6}>
             <TCInput
               name="passportIssueDate"
-              label="Date of Issue"
+              label=""
               type="date"
               required
               fullWidth
@@ -97,13 +97,7 @@ const KYCForm = () => {
             />
           </Grid>
           <Grid item xs={12}>
-            <TCInput
-              name="dob"
-              label="Date of Birth"
-              type="date"
-              required
-              fullWidth
-            />
+            <TCInput name="dob" label="" type="date" required fullWidth />
           </Grid>
           <Grid item xs={12}>
             <TCInput name="occupation" label="Occupation" fullWidth />
