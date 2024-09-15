@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
   },
   marginTop: {
-    marginTop: 10,
+    marginTop: 5,
   },
   detailsMargin: {
     marginLeft: 30,
@@ -62,19 +62,19 @@ const styles = StyleSheet.create({
   textView: {
     display: "flex",
     flexDirection: "row",
-    fontSize: 14,
+    fontSize: 13,
     marginBottom: 5,
   },
   textParagraph: {
     fontWeight: "bold",
     color: "#4A5568",
-    fontSize: 14,
+    fontSize: 13,
   },
   textTerms: {
     fontWeight: "bold",
     color: "#4A5568",
-    fontSize: 14,
-    marginBottom: 4,
+    fontSize: 13,
+    marginBottom: 3,
   },
   textLabel: {
     fontWeight: "bold",
@@ -89,6 +89,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginTop: 10,
+  },
+  // multiple column text
+  textFlex: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
+  doubleColumn: {
+    width: "48%",
+  },
+  threeColumn: {
+    width: "32%",
   },
   //  personal info styling
   personalRow: {
@@ -177,6 +191,7 @@ const KYCPreview = () => {
                       {kycData.spouseName || "N/A"}
                     </Text>
                   </View>
+
                   {/* Nationality */}
                   <View style={styles.textView}>
                     <Text style={styles.textLabel}>5. Nationality : </Text>
@@ -225,26 +240,87 @@ const KYCPreview = () => {
                 <Text style={styles.textLabel}>6. Passport Details : </Text>
               </View>
               <View style={styles.detailsMargin}>
+                {/* Horizontal layout for 3 fields */}
+                <View style={styles.textFlex}>
+                  <View style={styles.threeColumn}>
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>(A). Type : </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.nid || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.threeColumn}>
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>(B). Country Code : </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.nid || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.threeColumn}>
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>(C). Gender : </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.nid || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
+                </View>
                 {/* Passport No */}
                 <View style={styles.textView}>
-                  <Text style={styles.textLabel}>(A). Passport No : </Text>
+                  <Text style={styles.textLabel}>(D). Passport No : </Text>
                   <Text style={styles.textValue}>
                     {kycData.passportNo || "N/A"}
                   </Text>
                 </View>
-                {/* Date of Issue */}
-                <View style={styles.textView}>
-                  <Text style={styles.textLabel}>(B). Date Of Issue : </Text>
-                  <Text style={styles.textValue}>
-                    {kycData.passportIssueDate || "N/A"}
-                  </Text>
+                {/* Horizontal layout for 2 fields */}
+                <View style={styles.textFlex}>
+                  <View style={styles.doubleColumn}>
+                    {/* Date of Issue */}
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>
+                        (E). Date Of Issue :{" "}
+                      </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.passportIssueDate || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.doubleColumn}>
+                    {/* Expiry Date */}
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>(F). Expiry Date : </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.nid || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
                 </View>
-                {/* Place of Issue */}
-                <View style={styles.textView}>
-                  <Text style={styles.textLabel}>(C). Place Of Issue : </Text>
-                  <Text style={styles.textValue}>
-                    {kycData.passportPlaceOfIssue || "N/A"}
-                  </Text>
+                {/* Horizontal layout for 2 fields */}
+                <View style={styles.textFlex}>
+                  <View style={styles.doubleColumn}>
+                    {/* Place of Issue */}
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>
+                        (G). Place Of Issue :{" "}
+                      </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.passportPlaceOfIssue || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.doubleColumn}>
+                    {/* Date of Birth */}
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>
+                        (H). Date Of Birth :{" "}
+                      </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.dob || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
                 </View>
               </View>
               {/* National ID */}
@@ -254,14 +330,9 @@ const KYCPreview = () => {
                 </Text>
                 <Text style={styles.textValue}>{kycData.nid || "N/A"}</Text>
               </View>
-              {/* Date of Birth */}
-              <View style={styles.textView}>
-                <Text style={styles.textLabel}>8. Date Of Birth : </Text>
-                <Text style={styles.textValue}>{kycData.dob || "N/A"}</Text>
-              </View>
               {/* Occupation */}
               <View style={styles.textView}>
-                <Text style={styles.textLabel}>9. Occupation : </Text>
+                <Text style={styles.textLabel}>8. Occupation : </Text>
                 <Text style={styles.textValue}>
                   {kycData.occupation || "N/A"}
                 </Text>
