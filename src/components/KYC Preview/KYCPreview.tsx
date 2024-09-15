@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
     width: "100%",
   },
   doubleColumn: {
@@ -118,6 +117,51 @@ const styles = StyleSheet.create({
   },
   boxContent: {
     marginTop: 1,
+  },
+  //  signature
+  signature: {
+    fontSize: 14,
+    color: "#4A5568",
+    marginTop: 5,
+    marginBottom: 10,
+  },
+  textSignature: {
+    textDecoration: "underline",
+    fontSize: 13,
+    marginTop: 45,
+  },
+  //  annexure
+  annexure: {
+    marginTop: 5,
+  },
+  annexureHeader: {
+    fontSize: 13,
+    textDecoration: "underline",
+    marginBottom: 5,
+    color: "#4A5568",
+  },
+  annexureItem: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 1,
+  },
+  checkBox: {
+    width: 10,
+    height: 10,
+    borderWidth: 1,
+    borderColor: "#000",
+    marginRight: 10,
+  },
+  annexureText: {
+    fontSize: 11,
+    color: "#4A5568",
+  },
+  //  footer
+  footer: {
+    fontSize: 8,
+    color: "#4A5568",
+    textAlign: "center",
   },
 });
 
@@ -151,6 +195,7 @@ const KYCPreview = () => {
                 Furnished Below:
               </Text>
             </View>
+            {/* Personal Information */}
             <View style={styles.section}>
               <View style={styles.personalRow}>
                 <View style={styles.personalColumn1}>
@@ -182,7 +227,6 @@ const KYCPreview = () => {
                       {kycData.spouseName || "N/A"}
                     </Text>
                   </View>
-
                   {/* Nationality */}
                   <View style={styles.textView}>
                     <Text style={styles.textLabel}>5. Nationality : </Text>
@@ -224,9 +268,8 @@ const KYCPreview = () => {
                 </View>
               </View>
             </View>
-
+            {/* Passport Information */}
             <View style={styles.section}>
-              {/* Passport Information */}
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>6. Passport Details : </Text>
               </View>
@@ -329,9 +372,8 @@ const KYCPreview = () => {
                 </Text>
               </View>
             </View>
-
+            {/* Address Information */}
             <View style={styles.section}>
-              {/* Address Information */}
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>9. Address Information : </Text>
               </View>
@@ -390,7 +432,7 @@ const KYCPreview = () => {
               {/* Telephone or Mobile */}
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>
-                  (10). Telephone / Mobile No :{" "}
+                  10. Telephone / Mobile No :{" "}
                 </Text>
                 <Text style={styles.textValue}>{kycData.phone || "N/A"}</Text>
               </View>
@@ -400,6 +442,113 @@ const KYCPreview = () => {
                 <Text style={styles.textValue}>{kycData.nid || "N/A"}</Text>
               </View>
             </View>
+            {/* Travel Information */}
+            <View style={styles.section}>
+              <View style={styles.textView}>
+                <Text style={styles.textLabel}>12. Travel Information : </Text>
+              </View>
+              <View style={styles.detailsMargin}>
+                {/* Horizontal layout for 2 fields */}
+                <View style={styles.textFlex}>
+                  <View style={styles.doubleColumn}>
+                    {/* Country of Visit */}
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>
+                        (A). Country Of Visit :{" "}
+                      </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.passportPlaceOfIssue || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.doubleColumn}>
+                    {/* Date of Arrival / Departure */}
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>
+                        (B). Date Of Arrival :{" "}
+                      </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.dob || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+              {/* Purpose of Travel */}
+              <View style={styles.textView}>
+                <Text style={styles.textLabel}>13. Purpose Of Travel : </Text>
+                <Text style={styles.textValue}>
+                  {kycData.passportPlaceOfIssue || "N/A"}
+                </Text>
+              </View>
+              {/* Source of Fund */}
+              <View style={styles.textView}>
+                <Text style={styles.textLabel}>14. Source of Fund: </Text>
+                <Text style={styles.textValue}>{kycData.dob || "N/A"}</Text>
+              </View>
+            </View>
+
+            {/* Signature Section*/}
+            <View style={styles.marginTop}>
+              {/* Horizontal layout for 3 fields */}
+              <View style={styles.textFlex}>
+                {/* Sincerely Yours and Signature */}
+                <View style={styles.threeColumn}>
+                  <View style={styles.signature}>
+                    <Text style={styles.textLabel}>Sincerely Yours,</Text>
+                    <Text style={styles.textSignature}>
+                      (Signature Of Customer)
+                    </Text>
+                  </View>
+                </View>
+                {/*  Signature of Officer */}
+                <View style={styles.threeColumn}>
+                  <View style={styles.signature}>
+                    <Text style={styles.textLabel}>Signature & Seal</Text>
+                    <Text style={styles.textSignature}>
+                      (Officer / Manager)
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.threeColumn}>
+                  {/* Annexure Section */}
+                  <View style={styles.annexure}>
+                    <Text style={styles.annexureHeader}>
+                      Annexure (Please Tick Mark):
+                    </Text>
+                    {/* Annexure Items */}
+                    <View style={styles.annexureItem}>
+                      <View style={styles.checkBox} />
+                      <Text style={styles.annexureText}>Copy of Passport</Text>
+                    </View>
+                    <View style={styles.annexureItem}>
+                      <View style={styles.checkBox} />
+                      <Text style={styles.annexureText}>Copy of Visa</Text>
+                    </View>
+                    <View style={styles.annexureItem}>
+                      <View style={styles.checkBox} />
+                      <Text style={styles.annexureText}>
+                        Copy of Air Ticket
+                      </Text>
+                    </View>
+                    <View style={styles.annexureItem}>
+                      <View style={styles.checkBox} />
+                      <Text style={styles.annexureText}>
+                        FMJ Form (Where Applicable)
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+            {/* Footer Section */}
+            <View style={styles.footer}>
+              <Text>
+                Rahman Money Changer, Benapole Road Checkpost, Sharsha, Jessore
+                | Phone: +88-01716-255522 | Email: info@rahmanmoneychanger.com
+              </Text>
+              <Text> © 2024 Rahman Money Changer. All rights reserved.</Text>
+            </View>
           </View>
         </Page>
       </Document>
@@ -408,12 +557,3 @@ const KYCPreview = () => {
 };
 
 export default KYCPreview;
-
-//               <p>
-//                 Rahman Money Changer, Benapole Road Checkpost, Sharsha, Jessore
-//                 <br />
-//                 Phone: +88-01716-255522 | Email: info@rahmanmoneychanger.com
-//               </p>
-//               <p className="mt-2">
-//                 © 2024 Rahman Money Changer. All rights reserved.
-//               </p>
