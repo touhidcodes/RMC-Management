@@ -24,22 +24,12 @@ Font.register({
 
 // Styles for the PDF layout
 const styles = StyleSheet.create({
-  header: {
-    fontSize: 18,
-    marginBottom: 10,
-    textAlign: "center",
-  },
-  field: {
-    marginBottom: 5,
-    fontSize: 12,
-  },
-  label: { fontWeight: "bold", color: "#4A5568" },
-  value: {
-    color: "#4A5568",
-  },
   //  global styling
   page: {
-    padding: 30,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 20,
+    paddingBottom: 20,
     backgroundColor: "#ffffff",
     width: A4_WIDTH,
     height: A4_HEIGHT,
@@ -56,7 +46,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   detailsMargin: {
-    marginLeft: 30,
+    marginLeft: 20,
   },
   //  text styling
   textView: {
@@ -68,6 +58,7 @@ const styles = StyleSheet.create({
   textParagraph: {
     fontWeight: "bold",
     color: "#4A5568",
+    textAlign: "justify",
     fontSize: 13,
   },
   textTerms: {
@@ -155,9 +146,9 @@ const KYCPreview = () => {
             <View style={styles.marginTop}>
               <Text style={styles.textTerms}>Dear Sir,</Text>
               <Text style={styles.textParagraph}>
-                I want to Buy / Sell Foreign Currency Form / Your Money Changer
-                As Per Money Laundering Prevention Act, 2012 Detailed
-                Information Is Furnished Below:
+                I Want To Sell Foreign Currency Form / Your Money Changer As Per
+                Money Laundering Prevention Act, 2012 Detailed Information Is
+                Furnished Below:
               </Text>
             </View>
             <View style={styles.section}>
@@ -342,80 +333,72 @@ const KYCPreview = () => {
             <View style={styles.section}>
               {/* Address Information */}
               <View style={styles.textView}>
-                <Text style={styles.textLabel}>10. Address : </Text>
+                <Text style={styles.textLabel}>9. Address Information : </Text>
               </View>
               <View style={styles.detailsMargin}>
-                {/* Passport No */}
-                <View style={styles.textView}>
-                  <Text style={styles.textLabel}>(A). Contact Details : </Text>
-                  <Text style={styles.textValue}>
-                    {kycData.address || "N/A"}
-                  </Text>
+                {/* Horizontal layout for 2 fields */}
+                <View style={styles.textFlex}>
+                  <View style={styles.doubleColumn}>
+                    {/* Street or Road Name */}
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>
+                        (A). Street / Road :{" "}
+                      </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.passportPlaceOfIssue || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.doubleColumn}>
+                    {/* Upazila or Post */}
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>
+                        (B). Upazila / Post :{" "}
+                      </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.dob || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
                 </View>
-                {/* Date of Issue */}
-                <View style={styles.textView}>
-                  <Text style={styles.textLabel}>
-                    (B). Telephone / Mobile No :{" "}
-                  </Text>
-                  <Text style={styles.textValue}>{kycData.phone || "N/A"}</Text>
+                {/* Horizontal layout for 2 fields */}
+                <View style={styles.textFlex}>
+                  <View style={styles.doubleColumn}>
+                    {/* City or District */}
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>
+                        (C). City / District :{" "}
+                      </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.passportPlaceOfIssue || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.doubleColumn}>
+                    {/* State or Division */}
+                    <View style={styles.textView}>
+                      <Text style={styles.textLabel}>
+                        (D). State / Division :{" "}
+                      </Text>
+                      <Text style={styles.textValue}>
+                        {kycData.dob || "N/A"}
+                      </Text>
+                    </View>
+                  </View>
                 </View>
               </View>
-              {/* National ID */}
+              {/* Telephone or Mobile */}
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>
-                  7. National ID (For Bangladeshi National) :{" "}
+                  (10). Telephone / Mobile No :{" "}
                 </Text>
+                <Text style={styles.textValue}>{kycData.phone || "N/A"}</Text>
+              </View>
+              {/* Email */}
+              <View style={styles.textView}>
+                <Text style={styles.textLabel}>11. Email : </Text>
                 <Text style={styles.textValue}>{kycData.nid || "N/A"}</Text>
               </View>
-              {/* Date of Birth */}
-              <View style={styles.textView}>
-                <Text style={styles.textLabel}>8. Date Of Birth : </Text>
-                <Text style={styles.textValue}>{kycData.dob || "N/A"}</Text>
-              </View>
-              {/* Occupation */}
-              <View style={styles.textView}>
-                <Text style={styles.textLabel}>9. Occupation : </Text>
-                <Text style={styles.textValue}>
-                  {kycData.occupation || "N/A"}
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.section}>
-              <Text style={styles.label}>7. Date Of Issue:</Text>
-              <Text style={styles.value}>
-                {kycData.passportIssueDate || "N/A"}
-              </Text>
-            </View>
-            <View style={styles.section}>
-              <Text style={styles.label}>8. Place Of Issue:</Text>
-              <Text style={styles.value}>
-                {kycData.passportPlaceOfIssue || "N/A"}
-              </Text>
-            </View>
-
-            {/* Contact and Address Information */}
-            <View style={styles.section}>
-              <Text style={styles.label}>9. National ID (NID):</Text>
-              <Text style={styles.value}>{kycData.nid || "N/A"}</Text>
-            </View>
-            <View style={styles.section}>
-              <Text style={styles.label}>10. Date of Birth:</Text>
-              <Text style={styles.value}>{kycData.dob || "N/A"}</Text>
-            </View>
-            <View style={styles.section}>
-              <Text style={styles.label}>11. Occupation:</Text>
-              <Text style={styles.value}>{kycData.occupation || "N/A"}</Text>
-            </View>
-
-            {/* Address Details */}
-            <View style={styles.section}>
-              <Text style={styles.label}>12. Address:</Text>
-              <Text style={styles.value}>{kycData.address || "N/A"}</Text>
-            </View>
-            <View style={styles.section}>
-              <Text style={styles.label}>13. Phone:</Text>
-              <Text style={styles.value}>{kycData.phone || "N/A"}</Text>
             </View>
           </View>
         </Page>
