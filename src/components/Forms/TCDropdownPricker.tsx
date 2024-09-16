@@ -1,30 +1,24 @@
-import { TextField, InputAdornment, IconButton, MenuItem } from "@mui/material";
-import { SxProps } from "@mui/material/styles";
+import { MenuItem, TextField } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
-import { useState } from "react";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown"; // Import dropdown icon
 
 type TDropdownPickerProps = {
   name: string;
   label?: string;
   size?: "small" | "medium";
   fullWidth?: boolean;
-  sx?: SxProps;
+  options: { value: string; label: string }[]; // Dropdown options
   required?: boolean;
-  options: { value: string | number; label: string }[]; // Array of options for the dropdown
 };
 
-const TCDropdownPicker = ({
+const TDropdownPicker = ({
   name,
   label,
   size = "small",
   fullWidth,
-  sx,
-  required,
   options,
+  required,
 }: TDropdownPickerProps) => {
   const { control } = useFormContext();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
     <Controller
@@ -33,14 +27,10 @@ const TCDropdownPicker = ({
       render={({ field, fieldState: { error } }) => (
         <TextField
           {...field}
+          select // This turns the TextField into a dropdown
           label={label}
           size={size}
           fullWidth={fullWidth}
-          sx={{ ...sx }}
-          select // Enables the dropdown functionality
-          value={field.value || ""}
-          onClick={() => setDropdownOpen(!dropdownOpen)} // Toggle dropdown
-          placeholder={label}
           required={required}
           error={!!error?.message}
           helperText={error?.message}
@@ -56,4 +46,4 @@ const TCDropdownPicker = ({
   );
 };
 
-export default TCDropdownPicker;
+export default TDropdownPicker;

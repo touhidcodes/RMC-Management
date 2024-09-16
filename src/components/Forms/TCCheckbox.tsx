@@ -1,16 +1,14 @@
-import { Checkbox, FormControlLabel } from "@mui/material";
-import { SxProps } from "@mui/material/styles";
+import { Checkbox, FormControlLabel, FormHelperText } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
-import React from "react"; // Import React to use its types
 
 type TCCheckboxProps = {
   name: string;
-  label: string;
-  sx?: SxProps;
+  label?: string;
   required?: boolean;
+  onChange?: (checked: boolean) => void;
 };
 
-const TCCheckbox = ({ name, label, sx, required }: TCCheckboxProps) => {
+const TCCheckbox = ({ name, label, required, onChange }: TCCheckboxProps) => {
   const { control } = useFormContext();
 
   return (
@@ -18,27 +16,18 @@ const TCCheckbox = ({ name, label, sx, required }: TCCheckboxProps) => {
       control={control}
       name={name}
       render={({ field, fieldState: { error } }) => (
-        <FormControlLabel
-          control={
-            <Checkbox
-              {...field}
-              checked={!!field.value} // Convert value to boolean for the checkbox
-              onChange={
-                (e: React.ChangeEvent<HTMLInputElement>) =>
-                  field.onChange(e.target.checked) // Toggle between true and false
-              }
-              sx={{
-                color: field.value ? "purple" : "default", // Purple when checked
-                "&.Mui-checked": {
-                  color: "purple", // Keep the checkbox purple when checked
-                },
-                ...sx, // Spread any additional custom styles
-              }}
-            />
-          }
-          label={label}
-          required={required}
-        />
+        <>
+          <FormControlLabel
+            control={
+              <Checkbox
+                {...field}
+                checked={!!field.value} // Ensure it's treated as a boolean
+              />
+            }
+            label={label || ""}
+          />
+          {error && <FormHelperText error>{error.message}</FormHelperText>}
+        </>
       )}
     />
   );

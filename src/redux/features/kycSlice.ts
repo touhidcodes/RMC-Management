@@ -21,7 +21,7 @@ export interface SearchParams {
   phone: string;
   countryOfVisit: string;
   purposeOfTravel: string;
-  dateOfArrival: string;
+  dateOfArrival: string | Date;
   dateOfDeparture: string;
   sourceOfFund: string;
 }

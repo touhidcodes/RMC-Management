@@ -26,7 +26,7 @@ const TCDatePicker = ({
   sx,
   required,
 }: TDatePickerProps) => {
-  const { control } = useFormContext();
+  const { control, setValue } = useFormContext();
   const [calendarOpen, setCalendarOpen] = useState(false);
 
   return (
@@ -63,7 +63,7 @@ const TCDatePicker = ({
               <Calendar
                 onChange={(value: Value) => {
                   if (value instanceof Date) {
-                    field.onChange(value); // Set form date
+                    setValue(name, value); // Set form date directly
                   }
                   setCalendarOpen(false); // Close calendar after selection
                 }}
