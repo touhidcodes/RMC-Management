@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useEffect } from "react";
 import { setKycData } from "@/redux/features/kycSlice";
+import TCDatePicker from "../Forms/TCDatePicker";
+import TCDropdownPicker from "../Forms/TCDropdownPricker";
+import TCCheckbox from "../Forms/TCCheckbox";
 
 const KYCForm = () => {
   const dispatch = useDispatch();
@@ -124,10 +127,9 @@ const KYCForm = () => {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TCInput
+            <TCDatePicker
               name="dateOfArrival"
               label="Date of Arrival (Approx)"
-              type="date"
               fullWidth
             />
           </Grid>
@@ -141,6 +143,23 @@ const KYCForm = () => {
           </Grid>
           <Grid item xs={12}>
             <TCInput name="sourceOfFund" label="Source of Fund" fullWidth />
+          </Grid>
+          <Grid item xs={12}>
+            <TCDropdownPicker
+              name="selectedOption"
+              label="Select Option"
+              fullWidth
+              options={[
+                { value: "option1", label: "Option 1" },
+                { value: "option2", label: "Option 2" },
+                { value: "option3", label: "Option 3" },
+              ]}
+            />
+            <TCCheckbox
+              name="acceptTerms"
+              label="Accept Terms and Conditions"
+              required
+            />
           </Grid>
           {/* Additional Fields can be added as necessary */}
           <Grid item xs={12}>

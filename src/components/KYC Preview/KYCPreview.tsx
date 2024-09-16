@@ -169,7 +169,7 @@ const KYCPreview = () => {
   const kycData = useSelector((state: RootState) => state.kyc);
 
   return (
-    <PDFViewer style={{ width: "100%", height: "100%" }}>
+    <PDFViewer style={{ width: "100%", height: "100vh" }}>
       <Document>
         <Page size="A4" style={styles.page}>
           <View>
