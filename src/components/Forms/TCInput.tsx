@@ -1,4 +1,4 @@
-import { TextField } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 import { SxProps } from "@mui/material/styles";
 import { Controller, useFormContext } from "react-hook-form";
 type TInputProps = {
@@ -32,25 +32,50 @@ const TCInput = ({
       control={control}
       name={name}
       render={({ field, fieldState: { error } }) => (
-        <TextField
-          {...field}
-          sx={{ ...sx }}
-          label={label}
-          type={type}
-          variant="outlined"
-          size={size}
-          fullWidth={fullWidth}
-          placeholder={label}
-          required={required}
-          error={!!error?.message}
-          helperText={error?.message}
-          inputProps={
-            isNumberType ? { inputMode: "numeric", pattern: "[0-9]*" } : {}
-          }
-          select={select}
-        >
-          {children}
-        </TextField>
+        <>
+          {/* Label with Required Star */}
+          {label && (
+            <Typography
+              variant="subtitle1"
+              sx={{
+                fontWeight: "bold",
+                fontFamily: "var(--font-Bahnschrift)",
+                fontSize: 16,
+                color: "#4A5568",
+              }}
+            >
+              {label}{" "}
+              {required && (
+                <Typography component="span" color="error">
+                  *
+                </Typography>
+              )}
+            </Typography>
+          )}
+
+          {/* Input Field */}
+          <TextField
+            {...field}
+            sx={{
+              backgroundColor: "#fff",
+              ...sx,
+            }}
+            type={type}
+            variant="outlined"
+            size={size}
+            fullWidth={fullWidth}
+            placeholder={label}
+            required={required}
+            error={!!error?.message}
+            helperText={error?.message}
+            inputProps={
+              isNumberType ? { inputMode: "numeric", pattern: "[0-9]*" } : {}
+            }
+            select={select}
+          >
+            {children}
+          </TextField>
+        </>
       )}
     />
   );

@@ -9,7 +9,7 @@ import localFont from "next/font/local";
 const inter = Inter({ subsets: ["latin"] });
 
 const Bahnschrift = localFont({
-  src: "../../public/fonts/Bahnschrift.ttf",
+  src: "../../public/fonts/Bahnschrift.woff2",
   variable: "--font-Bahnschrift",
 });
 

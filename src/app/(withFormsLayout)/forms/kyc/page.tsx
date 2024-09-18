@@ -9,7 +9,7 @@ const KYCBuilderPage = () => {
     <Container maxWidth="xl">
       <Grid container>
         <Grid item xs={12} md={6}>
-          <Paper sx={{ borderRadius: 2 }}>
+          <Paper sx={{ borderRadius: 2, backgroundColor: "#F5F7F8" }}>
             <KYCForm />
           </Paper>
         </Grid>
