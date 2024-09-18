@@ -10,11 +10,15 @@ export interface SearchParams {
   mothersName: string;
   spouseName: string;
   nationality: string;
+  passportType: string;
+  countryCode: string;
+  gender: string;
   passportNo: string;
   passportIssueDate: string;
-  passportPlaceOfIssue: string;
-  nid: string;
-  dob: string;
+  passportExpiryDate: string;
+  passportIssuePlace: string;
+  bangladeshiNID: string;
+  dateOfBirth: string;
   occupation: string;
   address: string;
   phone: string;
@@ -34,11 +38,15 @@ const initialState: SearchParams = {
   mothersName: "",
   spouseName: "",
   nationality: "",
+  passportType: "",
+  countryCode: "",
+  gender: "",
   passportNo: "",
   passportIssueDate: "",
-  passportPlaceOfIssue: "",
-  nid: "",
-  dob: "",
+  passportExpiryDate: "",
+  passportIssuePlace: "",
+  bangladeshiNID: "",
+  dateOfBirth: "",
   occupation: "",
   address: "",
   phone: "",

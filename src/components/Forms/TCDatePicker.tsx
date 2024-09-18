@@ -1,4 +1,10 @@
-import { Box, TextField, InputAdornment, IconButton } from "@mui/material";
+import {
+  Box,
+  TextField,
+  InputAdornment,
+  IconButton,
+  Typography,
+} from "@mui/material";
 import { SxProps } from "@mui/material/styles";
 import { Controller, useFormContext } from "react-hook-form";
 import { useState } from "react";
@@ -35,20 +41,38 @@ const TCDatePicker = ({
       name={name}
       render={({ field, fieldState: { error } }) => (
         <>
+          {label && (
+            <Typography
+              variant="subtitle1"
+              sx={{
+                fontWeight: "bold",
+                fontFamily: "var(--font-Bahnschrift)",
+                fontSize: 16,
+                color: "#4A5568",
+              }}
+            >
+              {label}{" "}
+              {required && (
+                <Typography component="span" color="error">
+                  *
+                </Typography>
+              )}
+            </Typography>
+          )}
           <TextField
             {...field}
             label={label}
             size={size}
             fullWidth={fullWidth}
-            sx={{ ...sx }}
-            onClick={() => setCalendarOpen(!calendarOpen)} // Open calendar on field click
+            sx={{ background: "#fff", ...sx }}
+            onClick={() => setCalendarOpen(!calendarOpen)}
             value={field.value ? field.value.toLocaleDateString() : ""}
             placeholder={label}
             required={required}
             error={!!error?.message}
             helperText={error?.message}
             InputProps={{
-              readOnly: true, // Prevent typing
+              readOnly: true,
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton onClick={() => setCalendarOpen(!calendarOpen)}>
@@ -63,11 +87,11 @@ const TCDatePicker = ({
               <Calendar
                 onChange={(value: Value) => {
                   if (value instanceof Date) {
-                    setValue(name, value); // Set form date directly
+                    setValue(name, value);
                   }
-                  setCalendarOpen(false); // Close calendar after selection
+                  setCalendarOpen(false);
                 }}
-                value={field.value || new Date()} // Default to current date
+                value={field.value || new Date()}
               />
             </Box>
           )}

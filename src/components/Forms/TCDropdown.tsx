@@ -26,7 +26,6 @@ const TCDropdown = ({
       name={name}
       render={({ field, fieldState: { error } }) => (
         <>
-          {/* Label with Required Star */}
           {label && (
             <Typography
               variant="subtitle1"
@@ -45,7 +44,6 @@ const TCDropdown = ({
               )}
             </Typography>
           )}
-
           <TextField
             {...field}
             sx={{

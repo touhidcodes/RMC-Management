@@ -280,7 +280,7 @@ const KYCPreview = () => {
                     <View style={styles.textView}>
                       <Text style={styles.textLabel}>(A). Type : </Text>
                       <Text style={styles.textValue}>
-                        {kycData.nid || "N/A"}
+                        {kycData?.passportType}
                       </Text>
                     </View>
                   </View>
@@ -288,16 +288,14 @@ const KYCPreview = () => {
                     <View style={styles.textView}>
                       <Text style={styles.textLabel}>(B). Country Code : </Text>
                       <Text style={styles.textValue}>
-                        {kycData.nid || "N/A"}
+                        {kycData?.countryCode}
                       </Text>
                     </View>
                   </View>
                   <View style={styles.threeColumn}>
                     <View style={styles.textView}>
                       <Text style={styles.textLabel}>(C). Gender : </Text>
-                      <Text style={styles.textValue}>
-                        {kycData.nid || "N/A"}
-                      </Text>
+                      <Text style={styles.textValue}>{kycData?.gender}</Text>
                     </View>
                   </View>
                 </View>
@@ -317,7 +315,7 @@ const KYCPreview = () => {
                         (E). Date Of Issue :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.passportIssueDate || "N/A"}
+                        {kycData?.passportIssueDate}
                       </Text>
                     </View>
                   </View>
@@ -326,7 +324,7 @@ const KYCPreview = () => {
                     <View style={styles.textView}>
                       <Text style={styles.textLabel}>(F). Expiry Date : </Text>
                       <Text style={styles.textValue}>
-                        {kycData.nid || "N/A"}
+                        {kycData?.passportExpiryDate}
                       </Text>
                     </View>
                   </View>
@@ -340,7 +338,7 @@ const KYCPreview = () => {
                         (G). Place Of Issue :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.passportPlaceOfIssue || "N/A"}
+                        {kycData?.passportIssuePlace}
                       </Text>
                     </View>
                   </View>
@@ -351,7 +349,7 @@ const KYCPreview = () => {
                         (H). Date Of Birth :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.dob || "N/A"}
+                        {kycData?.dateOfBirth}
                       </Text>
                     </View>
                   </View>
@@ -362,13 +360,15 @@ const KYCPreview = () => {
                 <Text style={styles.textLabel}>
                   7. National ID (For Bangladeshi National) :{" "}
                 </Text>
-                <Text style={styles.textValue}>{kycData.nid || "N/A"}</Text>
+                <Text style={styles.textValue}>
+                  {kycData?.bangladeshiNID || "N/A"}
+                </Text>
               </View>
               {/* Occupation */}
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>8. Occupation : </Text>
                 <Text style={styles.textValue}>
-                  {kycData.occupation || "N/A"}
+                  {kycData?.occupation || "N/A"}
                 </Text>
               </View>
             </View>
@@ -387,7 +387,7 @@ const KYCPreview = () => {
                         (A). Street / Road :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.passportPlaceOfIssue || "N/A"}
+                        {kycData.name || "N/A"}
                       </Text>
                     </View>
                   </View>
@@ -398,7 +398,7 @@ const KYCPreview = () => {
                         (B). Upazila / Post :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.dob || "N/A"}
+                        {kycData.name || "N/A"}
                       </Text>
                     </View>
                   </View>
@@ -412,7 +412,7 @@ const KYCPreview = () => {
                         (C). City / District :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.passportPlaceOfIssue || "N/A"}
+                        {kycData.name || "N/A"}
                       </Text>
                     </View>
                   </View>
@@ -423,7 +423,7 @@ const KYCPreview = () => {
                         (D). State / Division :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.dob || "N/A"}
+                        {kycData.name || "N/A"}
                       </Text>
                     </View>
                   </View>
@@ -439,7 +439,7 @@ const KYCPreview = () => {
               {/* Email */}
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>11. Email : </Text>
-                <Text style={styles.textValue}>{kycData.nid || "N/A"}</Text>
+                <Text style={styles.textValue}>{kycData.name || "N/A"}</Text>
               </View>
             </View>
             {/* Travel Information */}
@@ -457,7 +457,7 @@ const KYCPreview = () => {
                         (A). Country Of Visit :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.passportPlaceOfIssue || "N/A"}
+                        {kycData.name || "N/A"}
                       </Text>
                     </View>
                   </View>
@@ -468,7 +468,7 @@ const KYCPreview = () => {
                         (B). Date Of Arrival :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.dob || "N/A"}
+                        {kycData.name || "N/A"}
                       </Text>
                     </View>
                   </View>
@@ -477,14 +477,12 @@ const KYCPreview = () => {
               {/* Purpose of Travel */}
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>13. Purpose Of Travel : </Text>
-                <Text style={styles.textValue}>
-                  {kycData.passportPlaceOfIssue || "N/A"}
-                </Text>
+                <Text style={styles.textValue}>{kycData.name || "N/A"}</Text>
               </View>
               {/* Source of Fund */}
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>14. Source of Fund: </Text>
-                <Text style={styles.textValue}>{kycData.dob || "N/A"}</Text>
+                <Text style={styles.textValue}>{kycData.name || "N/A"}</Text>
               </View>
             </View>
 
