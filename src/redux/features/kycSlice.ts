@@ -3,7 +3,6 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface SearchParams {
   transactionType: string;
-  currency: string;
   exchangeRate: string;
   amount: string;
   name: string;
@@ -28,7 +27,6 @@ export interface SearchParams {
 
 const initialState: SearchParams = {
   transactionType: "",
-  currency: "",
   exchangeRate: "",
   amount: "",
   name: "",

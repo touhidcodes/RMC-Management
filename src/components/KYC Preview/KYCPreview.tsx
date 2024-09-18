@@ -190,9 +190,9 @@ const KYCPreview = () => {
             <View style={styles.marginTop}>
               <Text style={styles.textTerms}>Dear Sir,</Text>
               <Text style={styles.textParagraph}>
-                I Want To Sell Foreign Currency Form / Your Money Changer As Per
-                Money Laundering Prevention Act, 2012 Detailed Information Is
-                Furnished Below:
+                I Want To {kycData.transactionType || "Sell"} Foreign Currency
+                Form Your Money Changer As Per Money Laundering Prevention Act,
+                2012 Detailed Information Is Furnished Below:
               </Text>
             </View>
             {/* Personal Information */}
@@ -202,29 +202,23 @@ const KYCPreview = () => {
                   {/* Name of Customer */}
                   <View style={styles.textView}>
                     <Text style={styles.textLabel}>1. Name of Customer : </Text>
-                    <Text style={styles.textValue}>
-                      {kycData.name || "N/A"}
-                    </Text>
+                    <Text style={styles.textValue}>{kycData?.name}</Text>
                   </View>
                   {/* Father's Name */}
                   <View style={styles.textView}>
                     <Text style={styles.textLabel}>2. Father's Name : </Text>
-                    <Text style={styles.textValue}>
-                      {kycData.fathersName || "N/A"}
-                    </Text>
+                    <Text style={styles.textValue}>{kycData?.fathersName}</Text>
                   </View>
                   {/* Mother's Name */}
                   <View style={styles.textView}>
                     <Text style={styles.textLabel}>3. Mother's Name : </Text>
-                    <Text style={styles.textValue}>
-                      {kycData.mothersName || "N/A"}
-                    </Text>
+                    <Text style={styles.textValue}>{kycData?.mothersName}</Text>
                   </View>
                   {/* Spouse's Name */}
                   <View style={styles.textView}>
                     <Text style={styles.textLabel}>4. Spouse's Name : </Text>
                     <Text style={styles.textValue}>
-                      {kycData.spouseName || "N/A"}
+                      {kycData?.spouseName || "N/A"}
                     </Text>
                   </View>
                   {/* Nationality */}
@@ -244,7 +238,9 @@ const KYCPreview = () => {
                         <Text style={styles.textLabel}>
                           Type Of Transaction :{" "}
                         </Text>
-                        <Text style={styles.textValue}>Buy</Text>
+                        <Text style={styles.textValue}>
+                          {kycData.transactionType || "Sell"}
+                        </Text>
                       </View>
                       {/* Foreign Currency */}
                       <View style={styles.textView}>
@@ -256,12 +252,16 @@ const KYCPreview = () => {
                       {/* Exchange Rate */}
                       <View style={styles.textView}>
                         <Text style={styles.textLabel}>Exchange Rate : </Text>
-                        <Text style={styles.textValue}>100.22</Text>
+                        <Text style={styles.textValue}>
+                          $ {kycData?.exchangeRate}
+                        </Text>
                       </View>
                       {/* Amount */}
                       <View style={styles.textView}>
                         <Text style={styles.textLabel}>Amount : </Text>
-                        <Text style={styles.textValue}>100.22</Text>
+                        <Text style={styles.textValue}>
+                          $ {kycData?.amount}
+                        </Text>
                       </View>
                     </View>
                   </View>

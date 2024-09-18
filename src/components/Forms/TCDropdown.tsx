@@ -1,38 +1,32 @@
-import { TextField, Typography } from "@mui/material";
-import { SxProps } from "@mui/material/styles";
+import { MenuItem, TextField, Typography } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
-type TInputProps = {
+
+type TDropdownProps = {
   name: string;
   label?: string;
-  type?: string;
   size?: "small" | "medium";
   fullWidth?: boolean;
-  sx?: SxProps;
-  placeholder?: string;
+  options: { value: string; label: string }[]; // Dropdown options
   required?: boolean;
-  children?: React.ReactNode;
-  select?: boolean;
 };
 
-const TCInput = ({
+const TCDropdown = ({
   name,
   label,
-  type = "text",
   size = "small",
   fullWidth,
-  sx,
+  options,
   required,
-  children,
-  select = false,
-}: TInputProps) => {
+}: TDropdownProps) => {
   const { control } = useFormContext();
-  const isNumberType = type === "number";
+
   return (
     <Controller
       control={control}
       name={name}
       render={({ field, fieldState: { error } }) => (
         <>
+          {/* Label with Required Star */}
           {label && (
             <Typography
               variant="subtitle1"
@@ -51,26 +45,25 @@ const TCInput = ({
               )}
             </Typography>
           )}
+
           <TextField
             {...field}
             sx={{
               backgroundColor: "#fff",
-              ...sx,
             }}
-            type={type}
             variant="outlined"
+            select
             size={size}
             fullWidth={fullWidth}
-            placeholder={label}
             required={required}
             error={!!error?.message}
             helperText={error?.message}
-            inputProps={
-              isNumberType ? { inputMode: "numeric", pattern: "[0-9]*" } : {}
-            }
-            select={select}
           >
-            {children}
+            {options.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
           </TextField>
         </>
       )}
@@ -78,4 +71,4 @@ const TCInput = ({
   );
 };
 
-export default TCInput;
+export default TCDropdown;
