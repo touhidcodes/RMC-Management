@@ -20,8 +20,12 @@ export interface SearchParams {
   bangladeshiNID: string;
   dateOfBirth: string;
   occupation: string;
-  address: string;
+  street: string;
+  post: string;
+  city: string;
+  state: string;
   phone: string;
+  email: string;
   countryOfVisit: string;
   purposeOfTravel: string;
   dateOfArrival: string | Date;
@@ -48,8 +52,12 @@ const initialState: SearchParams = {
   bangladeshiNID: "",
   dateOfBirth: "",
   occupation: "",
-  address: "",
+  street: "",
+  post: "",
+  city: "",
+  state: "",
   phone: "",
+  email: "",
   countryOfVisit: "",
   purposeOfTravel: "",
   dateOfArrival: "",

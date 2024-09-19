@@ -387,7 +387,7 @@ const KYCPreview = () => {
                         (A). Street / Road :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.name || "N/A"}
+                        {kycData?.street || "N/A"}
                       </Text>
                     </View>
                   </View>
@@ -398,7 +398,7 @@ const KYCPreview = () => {
                         (B). Upazila / Post :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.name || "N/A"}
+                        {kycData?.post || "N/A"}
                       </Text>
                     </View>
                   </View>
@@ -434,7 +434,7 @@ const KYCPreview = () => {
                 <Text style={styles.textLabel}>
                   10. Telephone / Mobile No :{" "}
                 </Text>
-                <Text style={styles.textValue}>{kycData.phone || "N/A"}</Text>
+                <Text style={styles.textValue}>{kycData?.phone}</Text>
               </View>
               {/* Email */}
               <View style={styles.textView}>
