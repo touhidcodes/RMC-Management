@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface SearchParams {
+  date: string;
+  serial: string;
   transactionType: string;
   exchangeRate: string;
   amount: string;
@@ -26,14 +28,16 @@ export interface SearchParams {
   state: string;
   phone: string;
   email: string;
-  countryOfVisit: string;
-  purposeOfTravel: string;
-  dateOfArrival: string | Date;
-  dateOfDeparture: string;
-  sourceOfFund: string;
+  countryVisit: string;
+  travelType: string;
+  travelDate: string;
+  travelPurpose: string;
+  fundSource: string;
 }
 
 const initialState: SearchParams = {
+  date: "",
+  serial: "",
   transactionType: "",
   exchangeRate: "",
   amount: "",
@@ -58,11 +62,11 @@ const initialState: SearchParams = {
   state: "",
   phone: "",
   email: "",
-  countryOfVisit: "",
-  purposeOfTravel: "",
-  dateOfArrival: "",
-  dateOfDeparture: "",
-  sourceOfFund: "",
+  countryVisit: "",
+  travelType: "",
+  travelDate: "",
+  travelPurpose: "",
+  fundSource: "",
 };
 
 export const kycSlice = createSlice({

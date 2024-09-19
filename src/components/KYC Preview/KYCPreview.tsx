@@ -11,6 +11,7 @@ import {
   Image,
   Font,
 } from "@react-pdf/renderer";
+import { formatDate, formatStandardDate } from "@/utils/formatDate";
 
 // A4 paper size dimensions in mm for layout purposes
 const A4_WIDTH = "210mm";
@@ -179,11 +180,13 @@ const KYCPreview = () => {
             <View style={styles.textRow}>
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>Date : </Text>
-                <Text style={styles.textValue}>12 Sep 2024</Text>
+                <Text style={styles.textValue}>
+                  {formatDate(kycData?.date)}
+                </Text>
               </View>
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>Serial No : </Text>
-                <Text style={styles.textValue}>12</Text>
+                <Text style={styles.textValue}>{kycData?.serial}</Text>
               </View>
             </View>
             {/* Terms of Agreement */}
@@ -302,9 +305,7 @@ const KYCPreview = () => {
                 {/* Passport No */}
                 <View style={styles.textView}>
                   <Text style={styles.textLabel}>(D). Passport No : </Text>
-                  <Text style={styles.textValue}>
-                    {kycData.passportNo || "N/A"}
-                  </Text>
+                  <Text style={styles.textValue}>{kycData?.passportNo}</Text>
                 </View>
                 {/* Horizontal layout for 2 fields */}
                 <View style={styles.textFlex}>
@@ -315,7 +316,7 @@ const KYCPreview = () => {
                         (E). Date Of Issue :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData?.passportIssueDate}
+                        {formatStandardDate(kycData?.passportIssueDate)}
                       </Text>
                     </View>
                   </View>
@@ -324,7 +325,7 @@ const KYCPreview = () => {
                     <View style={styles.textView}>
                       <Text style={styles.textLabel}>(F). Expiry Date : </Text>
                       <Text style={styles.textValue}>
-                        {kycData?.passportExpiryDate}
+                        {formatStandardDate(kycData?.passportExpiryDate)}
                       </Text>
                     </View>
                   </View>
@@ -349,7 +350,7 @@ const KYCPreview = () => {
                         (H). Date Of Birth :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData?.dateOfBirth}
+                        {formatStandardDate(kycData?.dateOfBirth)}
                       </Text>
                     </View>
                   </View>
@@ -411,9 +412,7 @@ const KYCPreview = () => {
                       <Text style={styles.textLabel}>
                         (C). City / District :{" "}
                       </Text>
-                      <Text style={styles.textValue}>
-                        {kycData.name || "N/A"}
-                      </Text>
+                      <Text style={styles.textValue}>{kycData?.city}</Text>
                     </View>
                   </View>
                   <View style={styles.doubleColumn}>
@@ -422,9 +421,7 @@ const KYCPreview = () => {
                       <Text style={styles.textLabel}>
                         (D). State / Division :{" "}
                       </Text>
-                      <Text style={styles.textValue}>
-                        {kycData.name || "N/A"}
-                      </Text>
+                      <Text style={styles.textValue}>{kycData?.state}</Text>
                     </View>
                   </View>
                 </View>
@@ -457,7 +454,7 @@ const KYCPreview = () => {
                         (A). Country Of Visit :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.name || "N/A"}
+                        {kycData?.countryVisit || "N/A"}
                       </Text>
                     </View>
                   </View>
@@ -465,10 +462,10 @@ const KYCPreview = () => {
                     {/* Date of Arrival / Departure */}
                     <View style={styles.textView}>
                       <Text style={styles.textLabel}>
-                        (B). Date Of Arrival :{" "}
+                        (B). Date Of {kycData?.travelType || "Departure"} :{" "}
                       </Text>
                       <Text style={styles.textValue}>
-                        {kycData.name || "N/A"}
+                        {formatStandardDate(kycData?.travelDate)}
                       </Text>
                     </View>
                   </View>
@@ -477,12 +474,16 @@ const KYCPreview = () => {
               {/* Purpose of Travel */}
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>13. Purpose Of Travel : </Text>
-                <Text style={styles.textValue}>{kycData.name || "N/A"}</Text>
+                <Text style={styles.textValue}>
+                  {kycData?.travelPurpose || "N/A"}
+                </Text>
               </View>
               {/* Source of Fund */}
               <View style={styles.textView}>
                 <Text style={styles.textLabel}>14. Source of Fund: </Text>
-                <Text style={styles.textValue}>{kycData.name || "N/A"}</Text>
+                <Text style={styles.textValue}>
+                  {kycData?.fundSource || "N/A"}
+                </Text>
               </View>
             </View>
 

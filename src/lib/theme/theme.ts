@@ -16,7 +16,7 @@ export const theme = createTheme({
       },
       styleOverrides: {
         root: {
-          background: "#ff793f",
+          background: "#1A144C",
           padding: "12px 30px",
           color: "#fff",
           fontWeight: "700",
@@ -24,7 +24,7 @@ export const theme = createTheme({
           borderRadius: "10px",
           textTransform: "none",
           "&:hover": {
-            backgroundColor: "#ff5722",
+            backgroundColor: "#120E35",
           },
         },
         outlined: {
