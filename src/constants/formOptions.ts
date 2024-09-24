@@ -1,19 +1,19 @@
-const transactionOptions = [
+export const transactionOptions = [
   { value: "Buy", label: "Buy" },
   { value: "Sell", label: "Sell" },
 ];
 
-const genderOptions = [
+export const genderOptions = [
   { value: "Male", label: "Male" },
   { value: "Female", label: "Female" },
 ];
 
-const travelOptions = [
+export const travelOptions = [
   { value: "Arrival", label: "Arrival" },
   { value: "Departure", label: "Departure" },
 ];
 
-const travelPurposeOptions = [
+export const travelPurposeOptions = [
   { value: "Transit", label: "Transit" },
   { value: "Tourist", label: "Tourist" },
   { value: "Medical", label: "Medical" },
@@ -45,7 +45,7 @@ const travelPurposeOptions = [
   },
 ];
 
-const fundSourceOptions = [
+export const fundSourceOptions = [
   { value: "Personal Savings", label: "Personal Savings" },
   { value: "Investment Income", label: "Investment Income" },
   { value: "Loans", label: "Loans" },

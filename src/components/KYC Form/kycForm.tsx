@@ -8,6 +8,13 @@ import { useEffect } from "react";
 import { setKycData } from "@/redux/features/kycSlice";
 import TCDatePicker from "../Forms/TCDatePicker";
 import TCDropdown from "../Forms/TCDropdown";
+import {
+  fundSourceOptions,
+  genderOptions,
+  transactionOptions,
+  travelOptions,
+  travelPurposeOptions,
+} from "@/constants";
 
 const KYCForm = () => {
   const dispatch = useDispatch();
@@ -21,16 +28,6 @@ const KYCForm = () => {
   useEffect(() => {
     // Handle any side effects if necessary when kycData changes
   }, [kycData]);
-
-  const transactionOptions = [
-    { value: "Buy", label: "Buy" },
-    { value: "Sell", label: "Sell" },
-  ];
-
-  const genderOptions = [
-    { value: "Male", label: "Male" },
-    { value: "Female", label: "Female" },
-  ];
 
   return (
     <Box>
@@ -47,6 +44,9 @@ const KYCForm = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          position: "sticky",
+          top: 0,
+          zIndex: 10,
         }}
       >
         KYC Profile Form
@@ -60,6 +60,25 @@ const KYCForm = () => {
       >
         <TCForm onSubmit={handleSubmit}>
           <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: "bold",
+                  color: "#1A144C",
+                  fontFamily: "var(--font-Bahnschrift)",
+                }}
+              >
+                Form Information:
+              </Typography>
+              <Divider sx={{ width: "100%", color: "#1A144C" }} />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TCDatePicker name="date" label="Date" required fullWidth />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TCInput name="serial" label="Serial" required fullWidth />
+            </Grid>
             <Grid item xs={12}>
               <Typography
                 variant="h6"
@@ -200,7 +219,7 @@ const KYCForm = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TCDatePicker
+              <TCInput
                 name="passportIssuePlace"
                 label="Place of Issue"
                 required
@@ -268,46 +287,67 @@ const KYCForm = () => {
               <TCInput name="email" label="Email" fullWidth />
             </Grid>
             <Grid item xs={12}>
-              <TCInput
-                name="countryOfVisit"
-                label="Country of Visit"
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: "bold",
+                  color: "#1A144C",
+                  fontFamily: "var(--font-Bahnschrift)",
+                  mt: 2,
+                }}
+              >
+                Travel Information:
+              </Typography>
+              <Divider sx={{ width: "100%", color: "#1A144C" }} />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <TCInput name="countryVisit" label="Country of Visit" fullWidth />
+            </Grid>
+            <Grid item xs={12} sm={3}>
+              <TCDropdown
+                name="travelType"
+                options={travelOptions}
+                label="Travel Type"
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}>
-              <TCInput
-                name="purposeOfTravel"
+            <Grid item xs={12} sm={5}>
+              <TCDatePicker
+                name="travelDate"
+                label="Date Of Travel"
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TCDropdown
+                name="travelPurpose"
+                options={travelPurposeOptions}
                 label="Purpose of Travel"
                 fullWidth
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TCDatePicker
-                name="dateOfArrival"
-                label="Date of Arrival (Approx)"
+              <TCDropdown
+                name="fundSource"
+                label="Source of Fund"
+                options={fundSourceOptions}
                 fullWidth
               />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TCInput
-                name="dateOfDeparture"
-                label="Date of Departure (Approx)"
-                type="date"
-                fullWidth
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TCInput name="sourceOfFund" label="Source of Fund" fullWidth />
             </Grid>
             {/* Additional Fields can be added as necessary */}
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={6} sx={{ marginTop: 2 }}>
               <Button
                 type="submit"
                 variant="contained"
                 color="primary"
                 fullWidth
               >
-                Submit
+                Preview
+              </Button>
+            </Grid>
+            <Grid item xs={12} sm={6} sx={{ marginTop: 2 }}>
+              <Button variant="contained" color="primary" fullWidth>
+                Save and Exit
               </Button>
             </Grid>
           </Grid>

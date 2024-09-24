@@ -3,6 +3,7 @@
 import KYCForm from "@/components/KYC Form/KYCForm";
 import KYCPreview from "@/components/KYC Preview/KYCPreview";
 import { Box, Container, Grid, Paper } from "@mui/material";
+const isBrowser = typeof window !== "undefined";
 
 const KYCBuilderPage = () => {
   return (
@@ -24,7 +25,7 @@ const KYCBuilderPage = () => {
               flexDirection: "column",
             }}
           >
-            <KYCPreview />
+            {isBrowser ? <KYCPreview /> : <p>Loading PDF viewer...</p>}
           </Box>
         </Grid>
       </Grid>

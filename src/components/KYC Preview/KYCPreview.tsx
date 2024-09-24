@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import {
@@ -209,17 +210,23 @@ const KYCPreview = () => {
                   </View>
                   {/* Father's Name */}
                   <View style={styles.textView}>
-                    <Text style={styles.textLabel}>2. Father's Name : </Text>
+                    <Text style={styles.textLabel}>
+                      2. Father&apos;s Name :{" "}
+                    </Text>
                     <Text style={styles.textValue}>{kycData?.fathersName}</Text>
                   </View>
                   {/* Mother's Name */}
                   <View style={styles.textView}>
-                    <Text style={styles.textLabel}>3. Mother's Name : </Text>
+                    <Text style={styles.textLabel}>
+                      3. Mother&apos;s Name :{" "}
+                    </Text>
                     <Text style={styles.textValue}>{kycData?.mothersName}</Text>
                   </View>
                   {/* Spouse's Name */}
                   <View style={styles.textView}>
-                    <Text style={styles.textLabel}>4. Spouse's Name : </Text>
+                    <Text style={styles.textLabel}>
+                      4. Spouse&apos;s Name :{" "}
+                    </Text>
                     <Text style={styles.textValue}>
                       {kycData?.spouseName || "N/A"}
                     </Text>
