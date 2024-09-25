@@ -25,7 +25,13 @@ const KYCBuilderPage = () => {
               flexDirection: "column",
             }}
           >
-            {isBrowser ? <KYCPreview /> : <p>Loading PDF viewer...</p>}
+            {isBrowser ? (
+              <KYCPreview />
+            ) : (
+              <div className="flex items-center justify-center h-screen">
+                <p className="text-[#4A5568]">Loading PDF viewer...</p>
+              </div>
+            )}
           </Box>
         </Grid>
       </Grid>

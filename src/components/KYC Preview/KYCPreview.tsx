@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     color: "#4A5568",
   },
   textValue: {
-    color: "#4A5568",
+    color: "#222831",
   },
   textRow: {
     display: "flex",
@@ -550,10 +550,13 @@ const KYCPreview = () => {
             {/* Footer Section */}
             <View style={styles.footer}>
               <Text>
-                Rahman Money Changer, Benapole Road Checkpost, Sharsha, Jessore
-                | Phone: +88-01716-255522 | Email: info@rahmanmoneychanger.com
+                Rahman Money Changer, Benapole Road Checkpost, Sharsha, Jashore
+                | Phone: +88-01776-525552 | Email:
+                rahmanmoneychanger98@gmail.com
               </Text>
-              <Text> © 2024 Rahman Money Changer. All rights reserved.</Text>
+              <Text>
+                &copy; 2024 Rahman Money Changer. All rights reserved.
+              </Text>
             </View>
           </View>
         </Page>

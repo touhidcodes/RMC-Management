@@ -15,6 +15,7 @@ import {
   travelOptions,
   travelPurposeOptions,
 } from "@/constants";
+import Link from "next/link";
 
 const KYCForm = () => {
   const dispatch = useDispatch();
@@ -346,9 +347,11 @@ const KYCForm = () => {
               </Button>
             </Grid>
             <Grid item xs={12} sm={6} sx={{ marginTop: 2 }}>
-              <Button variant="contained" color="primary" fullWidth>
-                Save and Exit
-              </Button>
+              <Link href="/">
+                <Button variant="contained" color="primary" fullWidth>
+                  Save and Exit
+                </Button>
+              </Link>
             </Grid>
           </Grid>
         </TCForm>
