@@ -1,11 +1,17 @@
 "use client";
 
-import KYCForm from "@/components/KYC Form/KYCForm";
-import KYCPreview from "@/components/KYC Preview/KYCPreview";
+import KYCForm from "@/components/KYC/KYCForm/KYCForm";
+import KYCPreview from "@/components/KYC/KYCPreview/KYCPreview";
 import { Box, Container, Grid, Paper } from "@mui/material";
-const isBrowser = typeof window !== "undefined";
+import { useEffect, useState } from "react";
 
-const KYCBuilderPage = () => {
+const KYC = () => {
+  const [isBrowser, setIsBrowser] = useState(false);
+
+  useEffect(() => {
+    setIsBrowser(typeof window !== "undefined");
+  }, []);
+
   return (
     <Container maxWidth="xl">
       <Grid container>
@@ -39,4 +45,4 @@ const KYCBuilderPage = () => {
   );
 };
 
-export default KYCBuilderPage;
+export default KYC;

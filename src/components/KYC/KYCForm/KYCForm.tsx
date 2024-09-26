@@ -1,13 +1,11 @@
 import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import { FieldValues } from "react-hook-form";
-import TCForm from "../Forms/TCForm";
-import TCInput from "../Forms/TCInput";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-import { useEffect } from "react";
+import TCForm from "../../Forms/TCForm";
+import TCInput from "../../Forms/TCInput";
+import { useDispatch } from "react-redux";
 import { setKycData } from "@/redux/features/kycSlice";
-import TCDatePicker from "../Forms/TCDatePicker";
-import TCDropdown from "../Forms/TCDropdown";
+import TCDatePicker from "../../Forms/TCDatePicker";
+import TCDropdown from "../../Forms/TCDropdown";
 import {
   fundSourceOptions,
   genderOptions,
@@ -15,20 +13,17 @@ import {
   travelOptions,
   travelPurposeOptions,
 } from "@/constants";
-import Link from "next/link";
+import KYCDownloader from "../KYCDownloader/KYCDownloader";
+import { useState } from "react";
 
 const KYCForm = () => {
   const dispatch = useDispatch();
-  const kycData = useSelector((state: RootState) => state.kyc);
+  const [isPreviewClicked, setIsPreviewClicked] = useState<Boolean>(false);
 
   const handleSubmit = (data: FieldValues) => {
-    console.log(data);
     dispatch(setKycData(data));
+    setIsPreviewClicked(true);
   };
-
-  useEffect(() => {
-    // Handle any side effects if necessary when kycData changes
-  }, [kycData]);
 
   return (
     <Box>
@@ -347,11 +342,7 @@ const KYCForm = () => {
               </Button>
             </Grid>
             <Grid item xs={12} sm={6} sx={{ marginTop: 2 }}>
-              <Link href="/">
-                <Button variant="contained" color="primary" fullWidth>
-                  Save and Exit
-                </Button>
-              </Link>
+              <KYCDownloader disabled={!isPreviewClicked} />
             </Grid>
           </Grid>
         </TCForm>

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-export interface SearchParams {
+export interface KYCParams {
   date: string;
   serial: string;
   transactionType: string;
@@ -35,7 +35,7 @@ export interface SearchParams {
   fundSource: string;
 }
 
-const initialState: SearchParams = {
+const initialState: KYCParams = {
   date: "",
   serial: "",
   transactionType: "",
