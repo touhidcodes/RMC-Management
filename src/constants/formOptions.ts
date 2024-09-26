@@ -13,6 +13,12 @@ export const travelOptions = [
   { value: "Departure", label: "Departure" },
 ];
 
+export const nationalityOptions = [
+  { value: "Bangladeshi", label: "Bangladeshi" },
+  { value: "Indian", label: "Indian" },
+  { value: "Others", label: "Others" },
+];
+
 export const travelPurposeOptions = [
   { value: "Transit", label: "Transit" },
   { value: "Tourist", label: "Tourist" },

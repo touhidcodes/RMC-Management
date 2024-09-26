@@ -9,6 +9,7 @@ import TCDropdown from "../../Forms/TCDropdown";
 import {
   fundSourceOptions,
   genderOptions,
+  nationalityOptions,
   transactionOptions,
   travelOptions,
   travelPurposeOptions,
@@ -149,9 +150,10 @@ const KYCForm = () => {
               <TCInput name="spouseName" label="Spouse's Name" fullWidth />
             </Grid>
             <Grid item xs={12}>
-              <TCInput
+              <TCDropdown
                 name="nationality"
                 label="Nationality"
+                options={nationalityOptions}
                 required
                 fullWidth
               />
