@@ -79,6 +79,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginTop: 10,
   },
+  textRowStarting: {
+    // v2 added
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 30,
+  },
   // multiple column text
   textFlex: {
     display: "flex",
@@ -160,6 +168,7 @@ const styles = StyleSheet.create({
     fontSize: 8,
     color: "#4A5568",
     textAlign: "center",
+    marginTop: 10, // v2 added
   },
 });
 
@@ -170,7 +179,8 @@ const KYCDocument: React.FC<{ kycData: KYCParams }> = ({ kycData }) => (
         {/* Header */}
         <Image src="/assets/images/Header.png" />
         {/* Date and Serial No */}
-        <View style={styles.textRow}>
+        {/*v2 added [textRow]*/}
+        <View style={styles.textRowStarting}>
           <View style={styles.textView}>
             <Text style={styles.textLabel}>Date : </Text>
             <Text style={styles.textValue}>{formatDate(kycData?.date)}</Text>
@@ -263,7 +273,7 @@ const KYCDocument: React.FC<{ kycData: KYCParams }> = ({ kycData }) => (
           </View>
           <View style={styles.detailsMargin}>
             {/* Horizontal layout for 3 fields */}
-            <View style={styles.textFlex}>
+            {/* <View style={styles.textFlex}>
               <View style={styles.threeColumn}>
                 <View style={styles.textView}>
                   <Text style={styles.textLabel}>(A). Type : </Text>
@@ -282,10 +292,10 @@ const KYCDocument: React.FC<{ kycData: KYCParams }> = ({ kycData }) => (
                   <Text style={styles.textValue}>{kycData?.gender}</Text>
                 </View>
               </View>
-            </View>
+            </View> */}
             {/* Passport No */}
             <View style={styles.textView}>
-              <Text style={styles.textLabel}>(D). Passport No : </Text>
+              <Text style={styles.textLabel}>(A). Passport No : </Text>
               <Text style={styles.textValue}>{kycData?.passportNo}</Text>
             </View>
             {/* Horizontal layout for 2 fields */}
@@ -293,7 +303,7 @@ const KYCDocument: React.FC<{ kycData: KYCParams }> = ({ kycData }) => (
               <View style={styles.doubleColumn}>
                 {/* Date of Issue */}
                 <View style={styles.textView}>
-                  <Text style={styles.textLabel}>(E). Date Of Issue : </Text>
+                  <Text style={styles.textLabel}>(B). Date Of Issue : </Text>
                   <Text style={styles.textValue}>
                     {formatStandardDate(kycData?.passportIssueDate)}
                   </Text>
@@ -302,7 +312,7 @@ const KYCDocument: React.FC<{ kycData: KYCParams }> = ({ kycData }) => (
               <View style={styles.doubleColumn}>
                 {/* Expiry Date */}
                 <View style={styles.textView}>
-                  <Text style={styles.textLabel}>(F). Expiry Date : </Text>
+                  <Text style={styles.textLabel}>(C). Expiry Date : </Text>
                   <Text style={styles.textValue}>
                     {formatStandardDate(kycData?.passportExpiryDate)}
                   </Text>
@@ -314,7 +324,7 @@ const KYCDocument: React.FC<{ kycData: KYCParams }> = ({ kycData }) => (
               <View style={styles.doubleColumn}>
                 {/* Place of Issue */}
                 <View style={styles.textView}>
-                  <Text style={styles.textLabel}>(G). Place Of Issue : </Text>
+                  <Text style={styles.textLabel}>(D). Place Of Issue : </Text>
                   <Text style={styles.textValue}>
                     {kycData?.passportIssuePlace}
                   </Text>
@@ -323,7 +333,7 @@ const KYCDocument: React.FC<{ kycData: KYCParams }> = ({ kycData }) => (
               <View style={styles.doubleColumn}>
                 {/* Date of Birth */}
                 <View style={styles.textView}>
-                  <Text style={styles.textLabel}>(H). Date Of Birth : </Text>
+                  <Text style={styles.textLabel}>(E). Date Of Birth : </Text>
                   <Text style={styles.textValue}>
                     {formatStandardDate(kycData?.dateOfBirth)}
                   </Text>
@@ -395,15 +405,15 @@ const KYCDocument: React.FC<{ kycData: KYCParams }> = ({ kycData }) => (
             <Text style={styles.textValue}>{kycData?.phone}</Text>
           </View>
           {/* Email */}
-          <View style={styles.textView}>
+          {/* <View style={styles.textView}>
             <Text style={styles.textLabel}>11. Email : </Text>
             <Text style={styles.textValue}>{kycData?.email || "N/A"}</Text>
-          </View>
+          </View> */}
         </View>
         {/* Travel Information */}
         <View style={styles.section}>
           <View style={styles.textView}>
-            <Text style={styles.textLabel}>12. Travel Information : </Text>
+            <Text style={styles.textLabel}>11. Travel Information : </Text>
           </View>
           <View style={styles.detailsMargin}>
             {/* Horizontal layout for 2 fields */}
@@ -432,14 +442,14 @@ const KYCDocument: React.FC<{ kycData: KYCParams }> = ({ kycData }) => (
           </View>
           {/* Purpose of Travel */}
           <View style={styles.textView}>
-            <Text style={styles.textLabel}>13. Purpose Of Travel : </Text>
+            <Text style={styles.textLabel}>12. Purpose Of Travel : </Text>
             <Text style={styles.textValue}>
               {kycData?.travelPurpose || "N/A"}
             </Text>
           </View>
           {/* Source of Fund */}
           <View style={styles.textView}>
-            <Text style={styles.textLabel}>14. Source of Fund: </Text>
+            <Text style={styles.textLabel}>13. Source of Fund: </Text>
             <Text style={styles.textValue}>{kycData?.fundSource || "N/A"}</Text>
           </View>
         </View>
