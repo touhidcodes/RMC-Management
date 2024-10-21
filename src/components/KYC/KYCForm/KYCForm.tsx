@@ -7,6 +7,7 @@ import { setKycData } from "@/redux/features/kycSlice";
 import TCDatePicker from "../../Forms/TCDatePicker";
 import TCDropdown from "../../Forms/TCDropdown";
 import {
+  countryOptions,
   fundSourceOptions,
   genderOptions,
   nationalityOptions,
@@ -71,7 +72,7 @@ const KYCForm = () => {
               <Divider sx={{ width: "100%", color: "#1A144C" }} />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TCDatePicker name="date" label="Date" required fullWidth />
+              <TCInput name="date" label="Date" required fullWidth />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TCInput name="serial" label="Serial" required fullWidth />
@@ -172,7 +173,7 @@ const KYCForm = () => {
               </Typography>
               <Divider sx={{ width: "100%", color: "#1A144C" }} />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            {/* <Grid item xs={12} sm={4}>
               <TCInput name="passportType" label="Type" required fullWidth />
             </Grid>
             <Grid item xs={12} sm={4}>
@@ -191,7 +192,7 @@ const KYCForm = () => {
                 fullWidth
                 required
               />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <TCInput
                 name="passportNo"
@@ -201,7 +202,7 @@ const KYCForm = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TCDatePicker
+              <TCInput
                 name="passportIssueDate"
                 label="Date Of Issue"
                 required
@@ -209,7 +210,7 @@ const KYCForm = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TCDatePicker
+              <TCInput
                 name="passportExpiryDate"
                 label="Expiry Date"
                 required
@@ -225,7 +226,7 @@ const KYCForm = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TCDatePicker
+              <TCInput
                 name="dateOfBirth"
                 label="Date of Birth"
                 required
@@ -281,9 +282,9 @@ const KYCForm = () => {
                 fullWidth
               />
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <TCInput name="email" label="Email" fullWidth />
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <Typography
                 variant="h6"
@@ -299,7 +300,13 @@ const KYCForm = () => {
               <Divider sx={{ width: "100%", color: "#1A144C" }} />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <TCInput name="countryVisit" label="Country of Visit" fullWidth />
+              <TCDropdown
+                name="countryVisit"
+                label="Country of Visit"
+                options={countryOptions}
+                required
+                fullWidth
+              />
             </Grid>
             <Grid item xs={12} sm={3}>
               <TCDropdown
@@ -310,11 +317,7 @@ const KYCForm = () => {
               />
             </Grid>
             <Grid item xs={12} sm={5}>
-              <TCDatePicker
-                name="travelDate"
-                label="Date Of Travel"
-                fullWidth
-              />
+              <TCInput name="travelDate" label="Date Of Travel" fullWidth />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TCDropdown
